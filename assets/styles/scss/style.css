@@ -93,12 +93,17 @@ ul {
   font-weight: 800;
   letter-spacing: -0.05rem;
 }
+@media (max-width: 425px) {
+  .nav__title {
+    font-size: 2.5rem;
+  }
+}
 
 /* MAIN */
 .main {
   width: 100%;
   height: 100%;
-  padding: 10rem 5%;
+  padding: 12rem 5%;
 }
 
 /* HOME */
@@ -109,18 +114,58 @@ ul {
 .home__container {
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 4rem;
+}
+@media (max-width: 1024px) {
+  .home__container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .home__container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 576px) {
+  .home__container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 425px) {
+  .home__container {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 .home__movie {
-  width: 20%;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+.home__movie-infos {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 1rem;
+  background: linear-gradient(transparent, transparent, #000);
   padding: 2rem;
 }
-.home__movie-poster {
-  transition: all 0.7s linear;
+.home__movie-infos--title {
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: #fff;
 }
-.home__movie:hover .home__movie-poster {
-  transform: scale(1.1);
+.home__movie-infos--gender {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.75);
 }
 
 /* MOVIE */
@@ -138,8 +183,18 @@ ul {
   align-items: center;
   gap: 6rem;
 }
+@media (max-width: 768px) {
+  .movie__container {
+    flex-direction: column;
+  }
+}
 .movie__poster {
   width: 33%;
+}
+@media (max-width: 768px) {
+  .movie__poster {
+    width: 100%;
+  }
 }
 .movie__content {
   width: 100%;
@@ -149,6 +204,11 @@ ul {
   align-items: flex-start;
   justify-content: flex-end;
   gap: 4rem;
+}
+@media (max-width: 1024px) {
+  .movie__content {
+    gap: 3rem;
+  }
 }
 .movie__content-infos {
   width: 100%;
@@ -161,9 +221,24 @@ ul {
   font-size: 2.5rem;
   font-weight: 700;
 }
+@media (max-width: 1024px) {
+  .movie__content-year {
+    font-size: 2rem;
+  }
+}
 .movie__content-title {
   font-size: 7rem;
   font-weight: 800;
+}
+@media (max-width: 1024px) {
+  .movie__content-title {
+    font-size: 5.5rem;
+  }
+}
+@media (max-width: 375px) {
+  .movie__content-title {
+    font-size: 4rem;
+  }
 }
 .movie__content-description {
   font-size: 1.7rem;
