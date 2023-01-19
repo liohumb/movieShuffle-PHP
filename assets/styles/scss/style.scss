@@ -133,3 +133,87 @@ ul {
     }
   }
 }
+
+/* MOVIE */
+.movie {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  margin: 4rem 0 0 0;
+
+  &__container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 6rem;
+  }
+
+  &__poster {
+    width: 33%;
+  }
+
+  &__content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    gap: 4rem;
+
+    &-infos {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    &-year {
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+
+    &-title {
+      font-size: 7rem;
+      font-weight: 800;
+    }
+
+    &-description {
+      font-size: 1.7rem;
+      font-weight: 400;
+      line-height: 2.75rem;
+      word-spacing: 1rem;
+    }
+
+    &-gender {
+      font-size: 1.5rem;
+      font-weight: 500;
+      opacity: .5;
+    }
+
+    &-info {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    &-button {
+      width: 100%;
+      height: 4rem;
+      display: grid;
+      place-items: center;
+      font-size: 1.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      border: .1rem solid rgba(0, 0, 0, .1);
+      transition: all .7s ease;
+
+      &:hover {
+        color: #fff;
+        background: #000;
+      }
+    }
+  }
+}

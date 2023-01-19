@@ -123,4 +123,77 @@ ul {
   transform: scale(1.1);
 }
 
+/* MOVIE */
+.movie {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  margin: 4rem 0 0 0;
+}
+.movie__container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 6rem;
+}
+.movie__poster {
+  width: 33%;
+}
+.movie__content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 4rem;
+}
+.movie__content-infos {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.movie__content-year {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+.movie__content-title {
+  font-size: 7rem;
+  font-weight: 800;
+}
+.movie__content-description {
+  font-size: 1.7rem;
+  font-weight: 400;
+  line-height: 2.75rem;
+  word-spacing: 1rem;
+}
+.movie__content-gender {
+  font-size: 1.5rem;
+  font-weight: 500;
+  opacity: 0.5;
+}
+.movie__content-info {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.movie__content-button {
+  width: 100%;
+  height: 4rem;
+  display: grid;
+  place-items: center;
+  font-size: 1.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: 0.1rem solid rgba(0, 0, 0, 0.1);
+  transition: all 0.7s ease;
+}
+.movie__content-button:hover {
+  color: #fff;
+  background: #000;
+}
+
 /*# sourceMappingURL=style.css.map */
