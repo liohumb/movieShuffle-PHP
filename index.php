@@ -9,7 +9,7 @@
     <div class="home__container">
         <?php foreach ($movies as $movie) { ?>
             <div class="home__movie">
-                <img src="assets/images/poster/<?= str_replace(' ', '-', $movie['title']) ?>.jpg"
+                <img src="assets/images/poster/<?= str_replace(' ', '-', strtolower($movie['title'])) ?>.jpg"
                      alt="<?= $movie['title'] ?>"
                      class="home__movie-poster">
                 <div class="home__movie-infos">

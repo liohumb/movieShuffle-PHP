@@ -36,7 +36,7 @@
             <div class="movie__content-infos">
                 <span class="movie__content-gender"><?= implode(", ", $data['genres']) ?></span>
                 <span class="movie__content-info">
-                    <?= number_format($data['duration'], '2', ' h ', ',') ?>
+                    <?= number_format($data['duration'], '2', ' h ') ?>
                     min -
                     <?= date('d/m/Y', strtotime($data['releaseDate'])) ?>
                 </span>
