@@ -1,22 +1,31 @@
 <?php
-    function convertTime($sec): float|int
+    function convertTime($duration): string
     {
-        return $sec / 60;
+        $hours = floor($duration / 60);
+        $minutes = $duration % 60;
+        return "{$hours} h {$minutes} min";
     }
 
     $id = false;
     $data = array('title' => 'Film Introuvable');
 
     if (isset($_GET['id'])) {
-        $datas = file_get_contents('data/movies.json');
-        $movies = json_decode($datas, true);
+        $db = new PDO("mysql:host=localhost:3306;dbname=movieShuffle", 'root', 'rootroot');
+        $query = "SELECT movie.id, movie.title, movie.description, movie.releaseDate, movie.duration, movie.video, GROUP_CONCAT(genre.name SEPARATOR ', ') AS genres FROM movie
+                      JOIN movie_genre ON movie.id = movie_genre.movie_id
+                      JOIN genre ON genre.id = movie_genre.genre_id
+                      WHERE movie.id = :id
+                      GROUP BY movie.id";
+        $stmt = $db->prepare($query);
+        $stmt->bindParam(':id', $_GET['id']);
+        $stmt->execute();
+        $data = $stmt->fetch();
 
-        foreach ($movies as $movie) {
-            if ($movie['id'] == $_GET['id']) {
-                $id = true;
-                $movie['duration'] = convertTime($movie['duration']);
-                $data = $movie;
-            }
+        if(!empty($data)){
+            $data['duration'] = convertTime($data['duration']);
+            $id = true;
+        }else{
+            $data = array('title' => 'Film Introuvable');
         }
     }
 ?>
@@ -34,10 +43,10 @@
             </div>
             <p class="movie__content-description"><?= $data['description'] ?></p>
             <div class="movie__content-infos">
-                <span class="movie__content-gender"><?= implode(", ", $data['genres']) ?></span>
+                <span class="movie__content-gender"><?= $data['genres'] ?></span>
                 <span class="movie__content-info">
-                    <?= number_format($data['duration'], '2', ' h ') ?>
-                    min -
+                    <?= $data['duration'] ?>
+                    -
                     <?= date('d/m/Y', strtotime($data['releaseDate'])) ?>
                 </span>
             </div>
