@@ -159,7 +159,7 @@ ul {
   align-items: flex-start;
   justify-content: flex-start;
   background: linear-gradient(90deg, #fff, rgba(255, 255, 255, 0.8), transparent);
-  padding: 20rem 2rem;
+  padding: 20rem 4rem;
   z-index: 1;
   transition: all 0.7s ease;
 }
@@ -171,7 +171,7 @@ ul {
   width: 33%;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 4rem;
 }
 @media (max-width: 769px) {
   .nav__modal-menu {
