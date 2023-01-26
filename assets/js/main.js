@@ -13,3 +13,24 @@ searchButton.addEventListener('click', () => {
         searchClose.classList.remove('nav__search-close--active')
     })
 })
+
+const menuButton = document.querySelector('.nav__menu')
+const menuButtonIcon = menuButton.querySelector('i')
+const menuModal = document.querySelector('.nav__modal')
+const main = document.querySelector('.main')
+
+menuButton.addEventListener('click', () => {
+    if (menuButtonIcon.classList.contains('bx-x')) {
+        menuModal.classList.remove('nav__modal-active')
+        menuButtonIcon.classList.remove('bx-x')
+        menuButtonIcon.classList.add('bx-menu')
+        searchButton.style.display = 'flex'
+        main.classList.remove('main__blur')
+    } else {
+        menuModal.classList.add('nav__modal-active')
+        menuButtonIcon.classList.remove('bx-menu')
+        menuButtonIcon.classList.add('bx-x')
+        searchButton.style.display = 'none'
+        main.classList.add('main__blur')
+    }
+})

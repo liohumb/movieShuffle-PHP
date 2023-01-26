@@ -148,12 +148,100 @@ ul {
 .nav__search-close--active:hover {
   opacity: 1;
 }
+.nav__modal {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background: linear-gradient(90deg, #fff, rgba(255, 255, 255, 0.8), transparent);
+  padding: 20rem 2rem;
+  z-index: 1;
+  transition: all 0.7s ease;
+}
+.nav__modal-active {
+  left: 0;
+  transition: all 0.7s ease;
+}
+.nav__modal-menu {
+  width: 33%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+@media (max-width: 769px) {
+  .nav__modal-menu {
+    width: 50%;
+  }
+}
+@media (max-width: 425px) {
+  .nav__modal-menu {
+    width: 100%;
+  }
+}
+.nav__modal-menu--search {
+  font-size: 2rem;
+  cursor: pointer;
+}
+.nav__modal-menu--search---input {
+  width: 66%;
+  font-size: 1.5rem;
+  border: none;
+  border-bottom: 0.1rem solid #000;
+  background: none;
+  padding: 0 0.5rem;
+}
+@media (max-width: 768px) {
+  .nav__modal-menu--search---input {
+    font-size: 1.25rem;
+  }
+}
+.nav__modal-menu--gender {
+  font-size: 1.25rem;
+}
+.nav__modal-menu--gender---select {
+  width: 100%;
+  height: 4rem;
+  background: none;
+  padding: 0 1rem;
+}
+.nav__modal-menu--gender---submit {
+  width: 100%;
+  font-weight: 600;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+.nav__modal-menu--link {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+.nav__modal-search {
+  display: flex;
+  align-items: center;
+}
+.nav__modal-gender {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1rem;
+}
 
 /* MAIN */
 .main {
   width: 100%;
   height: 100%;
   padding: 12rem 5%;
+  transition: all 0.7s ease;
+}
+.main__blur {
+  filter: blur(1rem);
+  transition: all 0.7s ease;
 }
 
 /* HOME */
