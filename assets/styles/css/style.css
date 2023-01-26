@@ -390,5 +390,21 @@ ul {
   font-weight: 600;
   text-align: center;
 }
+.search__pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+.search__pagination-prev, .search__pagination-page, .search__pagination-next {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: grid;
+  place-items: center;
+  border: 0.1rem solid #000;
+}
+.search__pagination-page {
+  opacity: 0.25;
+}
 
 /*# sourceMappingURL=style.css.map */
