@@ -34,7 +34,7 @@
 
 <section class="movie">
     <div class="movie__container">
-        <img src="assets/images/poster/<?= str_replace(' ', '-', $data['title']) ?>.jpg"
+        <img src="assets/images/poster/<?= $data['id'] . '-' . str_replace(' ', '-', strtolower($data['title'])) ?>.jpg"
              alt="<?= $data['title'] ?>" class="movie__poster">
         <div class="movie__content">
             <div class="movie__content-infos">
