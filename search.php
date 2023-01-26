@@ -3,7 +3,7 @@
 
     if(isset($_GET['search'])) {
         $search = $_GET['search'];
-        $query = "SELECT movie.id, movie.title, movie.releaseDate, 
+        $query = "SELECT movie.id, movie.title, movie.description, 
                             GROUP_CONCAT(genre.name SEPARATOR ', ') AS genres 
                             FROM movie JOIN movie_genre ON movie.id = movie_genre.movie_id 
                             JOIN genre ON genre.id = movie_genre.genre_id 
@@ -15,23 +15,32 @@
     }
 ?>
 
+<?php include ('templates/header.php') ?>
+
 <section class="search">
     <div class="search__container">
         <?php if(!empty($movies)) { ?>
             <?php foreach ($movies as $movie) { ?>
-                <img src="assets/images/poster/<?= str_replace(' ', '-', strtolower($movie['title'])) ?>.jpg"
-                     alt="<?= $movie['title'] ?>"
-                     class="search__poster">
-                <div class="search__infos">
-                    <a href="movie.php?id=<?= $movie['id'] ?>" class="search__infos-title">
-                        <h1 class="search__infos-title--link"><?= $movie['title'] ?></h1>
-                    </a>
-                    <span class="search__infos-gender"><?= $movie['genres'] ?></span>
-                    <p class="search__infos-description"><?= $movie['description'] ?></p>
+                <div class="search__movie">
+                    <img src="assets/images/poster/<?= str_replace(' ', '-', strtolower($movie['title'])) ?>.jpg"
+                         alt="<?= $movie['title'] ?>"
+                         class="search__movie-poster">
+                    <div class="search__movie-infos">
+                        <a href="movie.php?id=<?= $movie['id'] ?>" class="search__movie-infos--title">
+                            <h1 class="search__movie-infos--title---link"><?= $movie['title'] ?></h1>
+                        </a>
+                        <span class="search__movie-infos--gender"><?= $movie['genres'] ?></span>
+                        <?php
+                            $words = explode(' ', $movie['description']);
+                            $description = implode(' ', array_slice($words, 0, 33));
+                            $description .= (count($words) > 10) ? '...' : '';
+                        ?>
+                        <p class="search__movie-infos--description"><?= $description ?></p>
+                    </div>
                 </div>
             <?php } ?>
         <?php } else { ?>
-            <p>Aucun résultat trouvé pour votre recherche</p>
+            <p class="search__empty">Aucun résultat trouvé pour votre recherche</p>
         <?php } ?>
     </div>
 </section>
