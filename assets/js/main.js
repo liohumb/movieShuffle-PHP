@@ -17,6 +17,7 @@ searchButton.addEventListener('click', () => {
 const menuButton = document.querySelector('.nav__menu')
 const menuButtonIcon = menuButton.querySelector('i')
 const menuModal = document.querySelector('.nav__modal')
+const menuSearch = document.querySelector('.nav__right')
 const main = document.querySelector('.main')
 
 menuButton.addEventListener('click', () => {
@@ -24,13 +25,13 @@ menuButton.addEventListener('click', () => {
         menuModal.classList.remove('nav__modal-active')
         menuButtonIcon.classList.remove('bx-x')
         menuButtonIcon.classList.add('bx-menu')
-        searchButton.style.display = 'flex'
+        menuSearch.style.display = 'flex'
         main.classList.remove('main__blur')
     } else {
         menuModal.classList.add('nav__modal-active')
         menuButtonIcon.classList.remove('bx-menu')
         menuButtonIcon.classList.add('bx-x')
-        searchButton.style.display = 'none'
+        menuSearch.style.display = 'none'
         main.classList.add('main__blur')
     }
 })

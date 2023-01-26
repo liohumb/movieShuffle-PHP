@@ -55,7 +55,7 @@
                 <li>
                     <form action="gender.php" method="GET" class="nav__modal-gender">
                         <label for="gender" class="nav__modal-menu--gender">Choisissez un genre :</label>
-                        <Select id="gender" class="nav__modal-menu--gender---select">
+                        <Select id="gender" name="gender" class="nav__modal-menu--gender---select">
                             <?php foreach ($genres as $genre) { ?>
                                 <option value="<?= $genre['name'] ?>" class="nav__modal-menu--gender---option"><?= $genre['name'] ?></option>
                             <?php } ?>
