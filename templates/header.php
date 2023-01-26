@@ -69,6 +69,12 @@
                         Ajouter un film
                     </a>
                 </li>
+                <li>
+                    <a href="" class="nav__modal-menu--link">
+                        <i class='bx bx-plus'></i>
+                        Ajouter un genre
+                    </a>
+                </li>
             </ul>
         </nav>
 
