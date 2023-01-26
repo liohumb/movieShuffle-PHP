@@ -415,4 +415,25 @@ ul {
     font-weight: 600;
     text-align: center;
   }
+
+  &__pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+
+    &-prev,
+    &-page,
+    &-next {
+      width: 2.5rem;
+      height: 2.5rem;
+      display: grid;
+      place-items: center;
+      border: .1rem solid #000;
+    }
+
+    &-page {
+      opacity: .25;
+    }
+  }
 }

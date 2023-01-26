@@ -3,13 +3,21 @@
 
     if(isset($_GET['search'])) {
         $search = $_GET['search'];
+        $per_page = 4;
+        $page = (isset($_GET['page'])) ? (int) $_GET['page'] : 1;
+        $offset = ($page - 1) * $per_page;
+
         $query = "SELECT movie.id, movie.title, movie.description, 
-                            GROUP_CONCAT(genre.name SEPARATOR ', ') AS genres 
-                            FROM movie JOIN movie_genre ON movie.id = movie_genre.movie_id 
-                            JOIN genre ON genre.id = movie_genre.genre_id 
-                            WHERE movie.title LIKE :title GROUP BY movie.id, movie.title";
+                GROUP_CONCAT(genre.name SEPARATOR ', ') AS genres 
+                FROM movie JOIN movie_genre ON movie.id = movie_genre.movie_id 
+                JOIN genre ON genre.id = movie_genre.genre_id 
+                WHERE movie.title LIKE :title GROUP BY movie.id, movie.title
+                LIMIT :per_page OFFSET :offset";
+
         $datas = $db->prepare($query);
         $datas->bindValue(':title', '%' . $search . '%');
+        $datas->bindValue(':per_page', $per_page, PDO::PARAM_INT);
+        $datas->bindValue(':offset', $offset, PDO::PARAM_INT);
         $datas->execute();
         $movies = $datas->fetchAll();
     }
@@ -39,6 +47,20 @@
                     </div>
                 </div>
             <?php } ?>
+            <div class="search__pagination">
+                <?php
+                    $search = $_GET['search'];
+                    $per_page = 4;
+                    $page = (isset($_GET['page'])) ? (int) $_GET['page'] : 1;
+                ?>
+                <?php if ($page > 1) { ?>
+                    <a href="search.php?search=<?= $search ?>&page=<?= $page - 1 ?>" class="search__pagination-prev"><?= $page - 1 ?></a>
+                <?php } ?>
+                    <span class="search__pagination-page"><?= $page ?></span>
+                <?php if (count($movies) == $per_page) { ?>
+                    <a href="search.php?search=<?= $search ?>&page=<?= $page + 1 ?>" class="search__pagination-next"><?= $page + 1 ?></a>
+                <?php } ?>
+            </div>
         <?php } else { ?>
             <p class="search__empty">Aucun résultat trouvé pour votre recherche</p>
         <?php } ?>
