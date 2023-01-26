@@ -20,7 +20,7 @@
             <?php if(isset($movies)){
                 foreach ($movies as $movie) { ?>
                     <div class="home__movie">
-                        <img src="assets/images/poster/<?= str_replace(' ', '-', strtolower($movie['title'])) ?>.jpg"
+                        <img src="assets/images/poster/<?= $movie['id'] . '-' . str_replace(' ', '-', strtolower($movie['title'])) ?>.jpg"
                              alt="<?= $movie['title'] ?>"
                              class="home__movie-poster">
                         <div class="home__movie-infos">

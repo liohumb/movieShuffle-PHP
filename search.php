@@ -41,7 +41,7 @@
         <?php if(!empty($movies)) { ?>
             <?php foreach ($movies as $movie) { ?>
                 <div class="search__movie">
-                    <img src="assets/images/poster/<?= str_replace(' ', '-', strtolower($movie['title'])) ?>.jpg"
+                    <img src="assets/images/poster/<?= $movie['id'] . '-' . str_replace(' ', '-', strtolower($movie['title'])) ?>.jpg"
                          alt="<?= $movie['title'] ?>"
                          class="search__movie-poster">
                     <div class="search__movie-infos">
