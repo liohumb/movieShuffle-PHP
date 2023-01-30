@@ -301,7 +301,14 @@ ul {
   &__movie {
     position: relative;
     width: 100%;
+    height: 33rem;
     overflow: hidden;
+
+    &-poster {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
     &-infos {
       position: absolute;
@@ -531,6 +538,125 @@ ul {
 
     &-page {
       opacity: .25;
+    }
+  }
+}
+
+/* ADD */
+.add {
+  width: 100%;
+  height: 100%;
+
+  &__container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 4rem 10%;
+    
+    @media (max-width: 1024px) {
+      padding: 4rem 5%;
+    }
+
+    @media (max-width: 768px) {
+      padding: 4rem 0;
+    }
+  }
+
+  &__title {
+    font-size: 4rem;
+  }
+
+  &__form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    &-contents {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 4rem;
+      
+      @media (max-width: 768px) {
+        flex-direction: column;
+      }
+    }
+
+    &-content {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding: 2rem 4rem;
+      
+      @media (max-width: 768px) {
+        padding: 2rem;
+      }
+    }
+
+    &-label {
+      font-size: 2.25rem;
+
+      @media (max-width: 425px) {
+        font-size: 1.75rem;
+      }
+    }
+
+    &-input {
+      width: 100%;
+      height: 4rem;
+      font-size: 1.75rem;
+      border: none;
+      border-bottom: .1rem solid #000;
+      margin: 2rem;
+      padding: 1rem;
+      
+      @media (max-width: 425px) {
+        margin: 2rem 0;
+      }
+
+      &[type="file"] {
+        border: none;
+      }
+    }
+
+    &-text {
+      width: 100%;
+      height: 10rem;
+      font-size: 1.75rem;
+      border-radius: .33rem;
+      resize: none;
+      margin: 2rem;
+      padding: 1rem;
+
+      @media (max-width: 425px) {
+        margin: 2rem 0;
+      }
+    }
+
+    &-submit {
+      width: 100%;
+      height: 4rem;
+      display: grid;
+      place-items: center;
+      font-size: 2rem;
+      font-weight: 700;
+      background: none;
+      margin: 4rem 0;
+      cursor: pointer;
+      transition: all .7s ease;
+
+      &:hover {
+        color: #fff;
+        background: #000;
+        transition: all .7s ease;
+      }
     }
   }
 }
