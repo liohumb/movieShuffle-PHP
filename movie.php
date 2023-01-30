@@ -11,7 +11,7 @@
 
     if (isset($_GET['id'])) {
         $db = new PDO("mysql:host=localhost:3306;dbname=movieShuffle", 'root', 'rootroot');
-        $query = "SELECT movie.id, movie.title, movie.description, movie.releaseDate, movie.duration, movie.video, GROUP_CONCAT(genre.name SEPARATOR ', ') AS genres FROM movie
+        $query = "SELECT movie.id, movie.title, movie.description, movie.releaseDate, movie.duration, movie.video, movie.poster, GROUP_CONCAT(genre.name SEPARATOR ', ') AS genres FROM movie
                       JOIN movie_genre ON movie.id = movie_genre.movie_id
                       JOIN genre ON genre.id = movie_genre.genre_id
                       WHERE movie.id = :id
@@ -34,7 +34,7 @@
 
 <section class="movie">
     <div class="movie__container">
-        <img src="assets/images/poster/<?= $data['id'] . '-' . str_replace(' ', '-', strtolower($data['title'])) ?>.jpg"
+        <img src="assets/images/poster/<?= $data['poster'] ?>"
              alt="<?= $data['title'] ?>" class="movie__poster">
         <div class="movie__content">
             <div class="movie__content-infos">

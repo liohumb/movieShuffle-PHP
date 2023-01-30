@@ -146,3 +146,5 @@ VALUES (1, 1),
        (14, 8),
        (15, 1),
        (15, 4);
+
+ALTER TABLE movie ADD poster VARCHAR(255);

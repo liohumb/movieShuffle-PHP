@@ -13,7 +13,7 @@ if(isset($_GET['gender'])) {
     $stmt->execute();
     $total = $stmt->fetch();
 
-    $query = "SELECT movie.id, movie.title, movie.description, 
+    $query = "SELECT movie.id, movie.title, movie.description, movie.poster,
                     GROUP_CONCAT(genre.name SEPARATOR ', ') AS genres 
                     FROM movie JOIN movie_genre ON movie.id = movie_genre.movie_id 
                     JOIN genre ON genre.id = movie_genre.genre_id 
@@ -41,7 +41,7 @@ if(isset($_GET['gender'])) {
             </h1>
             <?php foreach ($movies as $movie) { ?>
                 <div class="search__movie">
-                    <img src="assets/images/poster/<?= $movie['id'] . '-' . str_replace(' ', '-', strtolower($movie['title'])) ?>.jpg"
+                    <img src="assets/images/poster/<?= $movie['poster'] ?>"
                          alt="<?= $movie['title'] ?>"
                          class="search__movie-poster">
                     <div class="search__movie-infos">

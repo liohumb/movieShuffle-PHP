@@ -64,13 +64,13 @@
                     </form>
                 </li>
                 <li>
-                    <a href="" class="nav__modal-menu--link">
+                    <a href="add_movie.php" class="nav__modal-menu--link">
                         <i class='bx bx-plus'></i>
                         Ajouter un film
                     </a>
                 </li>
                 <li>
-                    <a href="" class="nav__modal-menu--link">
+                    <a href="add_gender.php" class="nav__modal-menu--link">
                         <i class='bx bx-plus'></i>
                         Ajouter un genre
                     </a>
